@@ -16,10 +16,11 @@ func SetupRoute() *gin.Engine {
 		categoryRoute.GET("/get-category-data", categoryController.GetCategoryData)
 	}
 
+	itemController := new(controllers.ItemController)
 	// item routes
-	itemRoute := r.Group("/item")
+	itemRoute := r.Group("/items")
 	{
-		itemRoute.GET("/get-item-data")
+		itemRoute.GET("/get-item-data", itemController.GetItemData)
 	}
 
 	return r

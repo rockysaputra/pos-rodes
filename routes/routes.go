@@ -23,5 +23,18 @@ func SetupRoute() *gin.Engine {
 		itemRoute.GET("/get-item-data", itemController.GetItemData)
 	}
 
+	reportingRoute := r.Group("/report")
+	{
+		// di sorting berdasarkan tanggal
+		reportingRoute.GET("/get-report-data")
+	}
+
+	sellRoute := r.Group("/report")
+	{
+		// merupakan detail dari reporting -> satuan dari summary
+		// harus ada filtering dengan tanggal
+		sellRoute.GET("/get-sell-data")
+	}
+
 	return r
 }
